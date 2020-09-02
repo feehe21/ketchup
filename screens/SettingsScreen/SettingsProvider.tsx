@@ -1,5 +1,5 @@
 import React from 'react';
-import SettingsService, { Settings } from './SettingsService';
+import SettingsService, { Settings } from '../../services/SettingsService';
 
 interface Props {
     renderLoading?: () => React.ReactNode;

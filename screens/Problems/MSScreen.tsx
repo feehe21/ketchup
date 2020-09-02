@@ -23,20 +23,21 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         backgroundColor:'#f7f7f7',
         justifyContent: "space-around",
-        alignContent: "space-around"
+        alignContent: "space-around",
     },
     answersBlockBuffer:{
-        width:'130px',
+        width: '45%',//130
         flexWrap:"wrap", 
         flexDirection:"row",
         justifyContent: "space-around"
     },
     answerBlock:{
-        width:'100px', 
-        height:'100px', 
+        width: '95%',//100
+        height: '100%',//100
         flexWrap:"wrap", 
         flexDirection:"row",
-        justifyContent: "space-around"
+        justifyContent: "space-around",
+        alignContent: "space-around",
     },
     answerBlockLight: {
         backgroundColor:'#e0e0e0', 
@@ -46,13 +47,13 @@ const styles = StyleSheet.create({
     },
     countingBlockBlue:{
         backgroundColor:'#2e78b7',
-        width:'30px', 
-        height:'30px'
+        width: 30,
+        height: 30,
     },
     countingBlockOrange:{
         backgroundColor:'#f57b42',
-        width:'30px', 
-        height:'30px'
+        width: 30,
+        height: 30,
     }
 });
 

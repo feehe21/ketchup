@@ -1,8 +1,5 @@
 import { AsyncStorage } from 'react-native';
 
-type SkillName = string;
-type SkillValue = boolean;
-
 export type Reinforcement = {
     type: 'image' | 'video';
     uri: string;
@@ -88,13 +85,16 @@ class ReinforcementService {
         return reinforcement;
     }
 
-    async getSingle(): Promise<Reinforcement>{
+    async getSingle(score: number): Promise<Reinforcement>{
         const array = await this.getMedia();
         return array[Math.floor(Math.random()*array.length)];
     }
     
     async addMedia(type: 'image' | 'video', uri: string) {
         await this.updateMedia(reinforcements => [...reinforcements, { type, uri }]);
+    }
+    async clearMedia(){
+        await this.updateMedia(() => []);
     }
 }
 

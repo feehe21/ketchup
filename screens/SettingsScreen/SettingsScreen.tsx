@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-    Image,
-    Platform,
     ScrollView,
     StyleSheet,
-    Button,
     Text,
-    TouchableOpacity,
-    View, TouchableHighlight, TouchableNativeFeedback, TouchableWithoutFeedback,
+    View,
 } from 'react-native';
 import SettingsToggle from './SettingsToggle';
 
@@ -24,13 +20,6 @@ const styles = StyleSheet.create({
         // justifyContent: "space-around",
         alignContent: "space-around",
         // flexWrap: "wrap",
-    },
-    answerBlock: {//each answer
-        width: '90%',
-        height: '50px',
-        backgroundColor: '#c7c7c7',//pale grey
-        justifyContent: "center",
-        alignItems: "center",
     },
     headerText: {
         fontSize: 30,
@@ -56,7 +45,9 @@ export default function SettingsScreen({ skills, switchFocus }: Props) {
                 <Text style={styles.headerText}>Focused Skills</Text>
             </View>
             <View style={styles.answersContainer}>
-                {Object.entries(skills).map(([skill, value]) => (
+                {Object.entries(skills)
+                    .sort(([skill1], [skill2]) => skill1.localeCompare(skill2))
+                    .map(([skill, value]) => (  
                     <SettingsToggle skill={skill} value={value} onToggle={switchFocus} key={skill} />
                 )) }
                 
@@ -64,10 +55,3 @@ export default function SettingsScreen({ skills, switchFocus }: Props) {
         </ScrollView>
     );
 }
-
-
-
-{/* <SettingsScreen
-skills={['Addition 0-10','Subtraction 0-10','Counting 1-10', 'Numeral Identification 1-10', 'Addition 0-20', 'Subtraction 0-20', 'Reading 3 Number Places']}
-focus={[true,false,false, true, false, true, true, true]}
-/> */}

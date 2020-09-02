@@ -6,6 +6,7 @@ import {
     Animated,
 } from 'react-native';
 import { createDndContext } from "react-native-easy-dnd";
+import { WHITE_GREY } from '../colors';
 
 const { Provider, Droppable, Draggable } = createDndContext();
 
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     problemBlock: {
         flex: 4, 
         flexDirection: "column", 
-        backgroundColor:'#f7f7f7',
+        backgroundColor: WHITE_GREY,
         justifyContent: "space-around",
         alignContent: "space-around",
     },
@@ -25,10 +26,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     blockHolder:{
-        backgroundColor:'#f7f7f7', 
+        backgroundColor: WHITE_GREY,
         // backgroundColor: '#00e632',//green
-        width:'150px', 
-        height:'100px', 
+        width: 150,
+        height: 100,
         flexWrap:"wrap", 
         flexDirection:"row",
         justifyContent: "space-around",

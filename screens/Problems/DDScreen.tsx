@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
         // flexWrap: "wrap",
     },
     box:{
-        width: '40px',
-        height: '40px',
+        width: 40,
+        height: 40,
         backgroundColor: '#2e78b7',
         justifyContent: "center",
         alignItems: "center",

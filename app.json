@@ -19,7 +19,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.feehery.ketchup"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"

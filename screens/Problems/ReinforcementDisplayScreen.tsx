@@ -5,8 +5,8 @@ import {
     Text,
     View,
 } from 'react-native';
-import ReinforcementService, { Reinforcement } from '../Reinforcement/ReinforcementService';
-import { Video } from 'expo-av';
+import ReinforcementService, { Reinforcement } from '../../services/ReinforcementService';
+import { Video, AVPlaybackStatus } from 'expo-av';
 
 
 const styles = StyleSheet.create({
@@ -43,7 +43,10 @@ export default class ReinforcementDisplayScreen extends Component<Props, State> 
             return;
         console.log(media);
         this.setState({ media });
-        this.startTimer();
+        if (media.type !== 'video') {
+            console.log(media, 'startTimer')
+            this.startTimer();
+        }
     }
     
     /** Start timer for onDone */
@@ -62,6 +65,7 @@ export default class ReinforcementDisplayScreen extends Component<Props, State> 
     
     /** Called when reinforcement timer ticks */
     private handleTimer = () => {
+        console.log('timer tick')
         this.props.onDone();
     }
     
@@ -76,6 +80,18 @@ export default class ReinforcementDisplayScreen extends Component<Props, State> 
     }
     
     handlePlaybackStatusUpdate = (status: AVPlaybackStatus) => {
+        if (status.isLoaded && !Number.isNaN(status)) {
+            
+        }
+        if (status.isPlaying && this.timerHandle === undefined) {
+            console.log('is playing -> start timer')
+            this.startTimer();
+        }
+        if (status.didJustFinish) {
+            console.log('didJustFinish')
+            this.clearTimer();
+            this.handleTimer();
+        }
         console.log('playback status', status);
     }
     
@@ -104,7 +120,6 @@ export default class ReinforcementDisplayScreen extends Component<Props, State> 
                     rate={1.0}
                     volume={1.0}
                     isMuted={false}
-                    shouldPlay
                     resizeMode="cover"
                     onPlaybackStatusUpdate={this.handlePlaybackStatusUpdate}
                     style={{ width: 300, height: 300 }}

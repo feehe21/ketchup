@@ -2,17 +2,15 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import MCScreen from './MCScreen';
 import MSScreen from './MSScreen';
-import DDScreen from './DDScreen';
-import MatchScreen from './MatchScreen';
-import ProblemsService, { Problem, ProblemType } from './ProblemsService';
-import { Settings } from '../SettingsScreen/SettingsService';
+// import DDScreen from './DDScreen';
+// import MatchScreen from './MatchScreen';
+import ProblemsService, { Problem, ProblemType } from '../../services/ProblemsService';
+import { Settings } from '../../services/SettingsService';
 import SettingsProvider from '../SettingsScreen/SettingsProvider';
 import ReinforcementDisplayScreen from './ReinforcementDisplayScreen';
 
 // pull skill -> pull problem -> show problem on relevant screen -> record answer(correct/attempts) -> loop
 
-type SkillName = string;
-type SkillValue = boolean;
 
 function renderLoading() {
     // Render loading

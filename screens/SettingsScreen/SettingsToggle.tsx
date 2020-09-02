@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { StyleSheet, View, TouchableHighlight, Text } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     answerBlock: {//each answer
         width: '90%',
-        height: '50px',
+        height: '95%',
         justifyContent: "center",
         alignItems: "center",
     },
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#c7c7c7', // Pale grey
     },
     answerBuffer: {
-        height:'60px',
+        height:'20%',
         // backgroundColor: '#2e78b7',
         justifyContent: "center",
         alignItems: "center",
@@ -35,7 +35,7 @@ interface Props {
 
 export default function SettingsToggle({ skill, value, onToggle }: Props) {
     
-    const handlePress = useCallback(() => onToggle(skill, !value),
+    const handlePress = React.useCallback(() => onToggle(skill, !value),
         [skill, value, onToggle]);
     
     const colorStyle = value ? styles.active : styles.inactive;

@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
 import {
     Image,
-    Platform,
     ScrollView,
     StyleSheet,
-    Button,
     Text,
     TouchableOpacity,
-    View, TouchableHighlight, TouchableNativeFeedback, TouchableWithoutFeedback,
+    View,
     TextInput,
 } from 'react-native';
 import { Video } from 'expo-av';
-import sources from './sources.json';
 // import ImagePicker from 'react-native-image-picker';
 import * as ImagePicker from 'expo-image-picker';
 
 
-import ReinforcementService, { Reinforcement } from './ReinforcementService';
+import ReinforcementService, { Reinforcement } from '../../services/ReinforcementService';
 
 //import { DisappearingButton } from '../components/buttons';
 
@@ -49,7 +46,12 @@ const styles = StyleSheet.create({
       }, 
       button: {
         backgroundColor: "blue",
-        padding: 20,
+        padding: 15,
+        borderRadius: 5,
+      },
+      buttonDelete: {
+        backgroundColor: "red",
+        padding: 5,
         borderRadius: 5,
       },
       buttonText: {
@@ -138,6 +140,9 @@ export default class ReinforcementSettingsScreen extends Component<Props, State>
         ReinforcementService.addMedia('video', this.state.textInput);
         this.setState({textInput:""});
     }
+    clearMedia = () => {
+        ReinforcementService.clearMedia();
+    }
 
     render() {
         const {
@@ -161,15 +166,16 @@ export default class ReinforcementSettingsScreen extends Component<Props, State>
                     <Text>Or copy and paste the link to a video here:</Text>
                     <Text>(Youtube videos will not work)</Text>
                     <TextInput
-                        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+                        style={{ height: 40, borderColor: 'gray', borderWidth: 1, width: '70%' }}
                         onChangeText={this.handleChangeText}
                         value={textInput}
                     />
                     <TouchableOpacity onPress={this.handleVideoSubmit} style={styles.button}>
-                        <Text style={styles.buttonText}>Add Video</Text>
+                        <Text style={styles.buttonText}>Submit Video</Text>
                     </TouchableOpacity>
+                    
                 </View>
-                <View> 
+                <View>
                     {(media === null) ? null : media.map((img, idx) => {
                         if(img.type == "image"){
                             return (
@@ -194,6 +200,9 @@ export default class ReinforcementSettingsScreen extends Component<Props, State>
                         }
                     })}
                 </View>
+                <TouchableOpacity onPress={this.clearMedia} style={styles.buttonDelete}>
+                        <Text style={styles.buttonText}>Delete All Media</Text>
+                    </TouchableOpacity>
             </ScrollView>
         );
     }

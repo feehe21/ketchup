@@ -1,12 +1,6 @@
-import { Settings } from '../SettingsScreen/SettingsService';
-import { ProblemType, Problem } from './types.ts';
+import { Settings } from '../SettingsService';
+import { Problem } from './types.ts';
 import problems from './problems.json';
-
-
-export { ProblemType, Problem };
-
-
-const PROBLEMS_KEY = 'problems';
 
 class ProblemsService {
 	
