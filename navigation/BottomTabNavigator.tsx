@@ -7,7 +7,11 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import HomeScreen from '../screens/HomeScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+import Problems from '../screens/Problems/Problems';
+import ReinforcementSettingsScreen from '../screens/Reinforcement/ReinforcementSettingsScreen';
+import { BottomTabParamList, TabOneParamList, TabTwoParamList, HomeParamList, SettingsParamList, ProblemsParamList, MSParamList, TestParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -16,18 +20,40 @@ export default function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
-      <BottomTab.Screen
+      
+      {/* <BottomTab.Screen
         name="TabOne"
         component={TabOneNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
-      />
-      <BottomTab.Screen
+      /> */}
+      {/* <BottomTab.Screen
         name="TabTwo"
         component={TabTwoNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      /> */}
+      <BottomTab.Screen
+        name="Home"
+        component={HomeNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Settings"
+        component={SettingsNavigator}
+        options={{
+          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Media"
+        component={TestNavigator}
         options={{
           tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
         }}
@@ -69,5 +95,79 @@ function TabTwoNavigator() {
         options={{ headerTitle: 'Tab Two Title' }}
       />
     </TabTwoStack.Navigator>
+  );
+}
+
+const HomeStack = createStackNavigator<HomeParamList>();
+
+function HomeNavigator() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{ headerTitle: 'Home' }}
+      />
+      <HomeStack.Screen
+        name="Problems"
+        component={Problems}
+      />
+      {/* <HomeStack.Screen
+        name="MSScreen"
+        component={MSScreen}
+      /> */}
+    </HomeStack.Navigator>
+    
+  );
+}
+
+const SettingsStack = createStackNavigator<SettingsParamList>();
+
+function SettingsNavigator() {
+  // return (
+  //   <SettingsScreen />
+  // );
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen
+        name="SettingsScreen"
+        component={SettingsScreen}
+        options={{ headerTitle: 'Settings' }}
+      />
+    </SettingsStack.Navigator>
+  );
+}
+
+const ProblemsStack = createStackNavigator<ProblemsParamList>();
+
+function ProblemsNavigator() {
+  return (
+    <Problems/>
+  );
+  return (
+    <ProblemsStack.Navigator>
+      <ProblemsStack.Screen
+        name="ProblemsScreen"
+        component={Problems}
+        options={{ headerTitle: 'Problems' }}
+      />
+    </ProblemsStack.Navigator>
+  );
+}
+
+const TestStack = createStackNavigator<TestParamList>();
+
+function TestNavigator() {
+  // return (
+  //   <MCScreen/>
+  // );
+  return (
+    <TestStack.Navigator>
+      <TestStack.Screen
+        name="ReinforcementSettings"
+        component={ReinforcementSettingsScreen}
+        options={{ headerTitle: 'Reinforcement' }}
+      />
+    </TestStack.Navigator>
   );
 }

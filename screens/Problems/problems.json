@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "skill": "Addition 0-10",
+        "question": "5+5",
+        "answers": [
+            "5",
+            "55",
+            "10",
+            "8"
+        ],
+        "correctAnswer": 2,
+        "type": 0
+    },
+    {
+        "id": 1,
+        "skill": "Numeral Identification 1-10",
+        "question": "Find the ones with 5",
+        "answers": [
+            [1,0,1,0,0],
+            [1,0,0,0],
+            [1,0],
+            [1,0,0,0,0],
+            [1,0,0],
+            [1,0,0,0]
+        ],
+        "correctAnswer": 5,
+        "type": 2
+    },
+    {
+        "id": 2,
+        "skill": "Addition 0-20",
+        "question": "15+5",
+        "answers": [
+            "5",
+            "55",
+            "15",
+            "20"
+        ],
+        "correctAnswer": 3,
+        "type": 0
+    },
+    {
+        "id": 3,
+        "skill": "Numeral Identification 1-10",
+        "question": "Find the ones with 4",
+        "answers": [
+            [1,0,1,0,0],
+            [1,0,0,0],
+            [1,0],
+            [1,0,0,0,0],
+            [1,0,0],
+            [1,0,0,0]
+        ],
+        "correctAnswer": 4,
+        "type": 2
+    }
+]

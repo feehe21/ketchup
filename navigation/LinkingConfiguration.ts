@@ -16,6 +16,26 @@ export default {
               TabTwoScreen: 'two',
             },
           },
+          Home: {
+            screens: {
+              HomeScreen: 'home',
+            },
+          },
+          Settings: {
+            screens: {
+              SettingsScreen: 'settings',
+            },
+          },
+          MC: {
+            screens: {
+              MCScreen: 'MC',
+            },
+          },
+          MS: {
+            screens: {
+              MSScreen: 'MS',
+            },
+          },
         },
       },
       NotFound: '*',
